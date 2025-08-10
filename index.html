@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Migración</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <div class="map-background">
+        <div class="map-container">
+            <!-- Mapa Base -->
+            <object data="assets/svg/Mapas-Desktop/MAPA-BASE.svg" type="image/svg+xml" class="base" title="Mapa base del mundo" aria-label="Mapa base del mundo"></object>
+            <!-- 1 - POR DONDE SE VAN -->
+            <object data="assets/svg/Mapas-Desktop/1- POR DONDE SE VAN/1-DONDE-SE-VAN-LIN.svg" type="image/svg+xml" class="tema1-lin" title="Líneas de migración - Por donde se van" aria-label="Líneas de migración - Por donde se van"></object>
+            <object data="assets/svg/Mapas-Desktop/1- POR DONDE SE VAN/1-DONDE-SE-VAN-DATA.svg" type="image/svg+xml" class="tema1-data" title="Datos de migración - Por donde se van" aria-label="Datos de migración - Por donde se van"></object>
+            <object data="assets/svg/Mapas-Desktop/1- POR DONDE SE VAN/1-DONDE-SE-VAN-REC.svg" type="image/svg+xml" class="tema1-rec" title="Recorrido migratorio - Por donde se van" aria-label="Recorrido migratorio - Por donde se van"></object>
+            <!-- 2 - POR DONDE REGRESAN -->
+            <object data="assets/svg/Mapas-Desktop/2- POR DONDE REGRESAN/2-DONDE-REGRESAN-LIN.svg" type="image/svg+xml" class="tema2-lin" title="Líneas de migración - Por donde regresan" aria-label="Líneas de migración - Por donde regresan"></object>
+            <object data="assets/svg/Mapas-Desktop/2- POR DONDE REGRESAN/2-DONDE-REGRESAN-DATA.svg" type="image/svg+xml" class="tema2-data" title="Datos de migración - Por donde regresan" aria-label="Datos de migración - Por donde regresan"></object>
+            <object data="assets/svg/Mapas-Desktop/2- POR DONDE REGRESAN/2-DONDE-REGRESAN-REC.svg" type="image/svg+xml" class="tema2-rec" title="Recorrido migratorio - Por donde regresan" aria-label="Recorrido migratorio - Por donde regresan"></object>
+            <!-- 3 - REMESAS -->
+            <object data="assets/svg/Mapas-Desktop/3- REMESAS/3-REMESAS-LIN.svg" type="image/svg+xml" class="tema3-lin" title="Líneas de remesas" aria-label="Líneas de remesas"></object>
+            <object data="assets/svg/Mapas-Desktop/3- REMESAS/3-REMESAS-DATA.svg" type="image/svg+xml" class="tema3-data" title="Datos de remesas" aria-label="Datos de remesas"></object>
+            <object data="assets/svg/Mapas-Desktop/3- REMESAS/3-REMESAS-REC.svg" type="image/svg+xml" class="tema3-rec" title="Recorrido de remesas" aria-label="Recorrido de remesas"></object>
+            <!-- 4 - EGRESOS REMESAS -->
+            <object data="assets/svg/Mapas-Desktop/4- EGRESOS REMESAS/4-EGRESOS-REMESAS-LIN.svg" type="image/svg+xml" class="tema4-lin" title="Líneas de egresos de remesas" aria-label="Líneas de egresos de remesas"></object>
+            <object data="assets/svg/Mapas-Desktop/4- EGRESOS REMESAS/4-EGRESOS-REMESAS-DATA.svg" type="image/svg+xml" class="tema4-data" title="Datos de egresos de remesas" aria-label="Datos de egresos de remesas"></object>
+            <object data="assets/svg/Mapas-Desktop/4- EGRESOS REMESAS/4-EGRESOS-REMESAS-REC.svg" type="image/svg+xml" class="tema4-rec" title="Recorrido de egresos de remesas" aria-label="Recorrido de egresos de remesas"></object>
+            <!-- 5 - CANCILLERIA -->
+            <object data="assets/svg/Mapas-Desktop/5- CANCILLERIA/5-CANCILLERIA-LIN.svg" type="image/svg+xml" class="tema5-lin" title="Líneas de Cancillería" aria-label="Líneas de Cancillería"></object>
+            <object data="assets/svg/Mapas-Desktop/5- CANCILLERIA/5-CANCILLERIA-DATA.svg" type="image/svg+xml" class="tema5-data" title="Datos de Cancillería" aria-label="Datos de Cancillería"></object>
+            <object data="assets/svg/Mapas-Desktop/5- CANCILLERIA/5-CANCILLERIA-REC.svg" type="image/svg+xml" class="tema5-rec" title="Recorrido de Cancillería" aria-label="Recorrido de Cancillería"></object>
+            <!-- 6 - TESTIMONIOS -->
+            <object data="assets/svg/Mapas-Desktop/6- TESTIMONIOS/6-TESTIMONIOS-LBOX.svg" type="image/svg+xml" class="tema6-lbox" title="Caja de testimonios" aria-label="Caja de testimonios"></object>
+            <object data="assets/svg/Mapas-Desktop/6- TESTIMONIOS/6-TESTIMONIOS-BTN.svg" type="image/svg+xml" class="tema6-btn" title="Botón de testimonios" aria-label="Botón de testimonios"></object>
+            <object data="assets/svg/Mapas-Desktop/6- TESTIMONIOS/6-TESTIMONIOS-REC.svg" type="image/svg+xml" class="tema6-rec" title="Recorrido de testimonios" aria-label="Recorrido de testimonios"></object>
+            <object data="assets/svg/Mapas-Desktop/6- TESTIMONIOS/REC-TESTIMONIOS.svg" type="image/svg+xml" class="tema6-rec2" title="Recorrido de testimonios 2" aria-label="Recorrido de testimonios 2"></object>
+        </div>
+    </div>
+
+        <script src="app.js"></script>
+        <script>
+        // Manejo de errores de carga de SVG
+        document.querySelectorAll('object[type="image/svg+xml"]').forEach(obj => {
+            obj.addEventListener('error', function() {
+                this.style.display = 'none';
+                const msg = document.createElement('div');
+                msg.textContent = 'Error al cargar el SVG: ' + (this.title || this.ariaLabel || this.data);
+                msg.style.color = 'red';
+                msg.style.position = 'absolute';
+                msg.style.left = this.style.left || '0';
+                msg.style.top = this.style.top || '0';
+                msg.style.background = 'rgba(0,0,0,0.7)';
+                msg.style.padding = '8px';
+                msg.style.zIndex = 1000;
+                this.parentNode.appendChild(msg);
+            });
+        });
+        </script>
+</body>
+</html>

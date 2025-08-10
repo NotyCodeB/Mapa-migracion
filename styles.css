@@ -1,0 +1,70 @@
+/* Fondo fijo para el mapa y capas animadas */
+.map-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.map-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+    pointer-events: auto;
+    overflow: hidden;
+}
+.tema6-rec2 {
+    width: 60% !important;
+    height: 60% !important;
+    left: 20% !important;
+    top: 20% !important;
+    transition: width 0.5s, height 0.5s, left 0.5s, top 0.5s;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #1e1e1e;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.map-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.map-container object {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 900px) {
+    .map-container {
+        width: 100vw;
+        height: 60vw;
+        min-height: 300px;
+    }
+    .map-container object {
+        width: 100vw;
+        height: 60vw;
+    }
+}
+
+.base {
+    opacity: 1; /* Visible desde el inicio */
+}
+
+.map-container object:not(.base) {
+    opacity: 0; /* Ocultar todo lo demás */
+    transition: opacity 0.5s;
+}

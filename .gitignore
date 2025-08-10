@@ -1,0 +1,17 @@
+# Node modules (si usas npm/yarn)
+node_modules/
+
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de VS Code
+.vscode/
+
+# Archivos de entorno
+.env
+.env.*
+
+# Salidas de build (si existieran)
+dist/
+build/
